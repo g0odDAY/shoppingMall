@@ -26,7 +26,7 @@
                             <a class="nav-link" href="shop.do">상품보러가기</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">고객문의</a>
+                            <a class="nav-link" href="qaList.do">고객문의</a>
                         </li>
                     </ul>
                 </div>

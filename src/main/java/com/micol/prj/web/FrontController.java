@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.micol.prj.command.LoginForm;
 import com.micol.prj.command.MainCommand;
+import com.micol.prj.command.Qa;
+import com.micol.prj.command.QaList;
 import com.micol.prj.command.Register;
 import com.micol.prj.command.Shop;
 import com.micol.prj.common.Command;
@@ -34,6 +36,8 @@ public class FrontController extends HttpServlet {
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/register.do", new Register());
 		map.put("/shop.do", new Shop());
+		map.put("/qa.do", new Qa());
+		map.put("/qaList.do", new QaList());
 	}
 
 	

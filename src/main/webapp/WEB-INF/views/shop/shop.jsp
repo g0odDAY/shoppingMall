@@ -598,7 +598,7 @@ https://templatemo.com/tm-559-zay-shop
 			var link = 'shop-single.html';
 		    window.location.href = link;       //웹개발할때 숨쉬듯이 작성할 코드
 		    //window.location.replace(link);     // 이전 페이지로 못돌아감
-		    window.open(link);
+		   // window.open(link);
 		
 
 		});

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>팝업창</title>
+<script>
+function setPopUpStart(obj){
+	if(obj.checked==true){
+		var expireDate=new Date();
+		expireDate.setMonth(expireDate.getMonth()+1);
+		document.cookie="notShowPop="+"true"+";path=/; expires="+expireDate.toGMTString();
+		window.close();
+	}
+}
+</script>
+</head>
+<body>
+<img src="img/3.png" id="shopPopUp">
+<form>
+	<input type=checkbox onClick="setPopUpStart(this)">오늘은 더이상 ㄴㄴ
+</form>
+</body>
+<script>
+var shopPopUp=document.getElementById("shopPopUp");
+shopPopUp.addEventListener("click",function(){
+	var link = 'shop.do';
+    window.location.href = link;       //웹개발할때 숨쉬듯이 작성할 코드
+    //window.location.replace(link);     // 이전 페이지로 못돌아감
+    window.open(link);
+
+
+});
+</script>
+</html>

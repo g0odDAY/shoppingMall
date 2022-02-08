@@ -11,12 +11,7 @@ public class prodList implements Command {
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
 		// TODO Auto-generated method stub
 		return "shop/prodList";
-		create table product(
-			    prod_name varchar2(50),
-			    prod_dis varchar2(500),
-			    prod_price varchar2(50),
-			    prod_file varchar2(50)
-			);
+	
 	}
 
 }

@@ -13,10 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.micol.prj.command.LoginForm;
 import com.micol.prj.command.MainCommand;
-import com.micol.prj.command.Qa;
+import com.micol.prj.command.ProdAdd;
+import com.micol.prj.command.ProdRegister;
+import com.micol.prj.command.QaForm;
 import com.micol.prj.command.QaList;
+import com.micol.prj.command.QaSelect;
+import com.micol.prj.command.QaSend;
 import com.micol.prj.command.Register;
-import com.micol.prj.command.Shop;
+import com.micol.prj.command.prodList;
 import com.micol.prj.common.Command;
 
 
@@ -35,9 +39,16 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainCommand());
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/register.do", new Register());
-		map.put("/shop.do", new Shop());
-		map.put("/qa.do", new Qa());
+		map.put("/prodList.do", new prodList());
+		//qa
+		map.put("/qaForm.do", new QaForm());
 		map.put("/qaList.do", new QaList());
+		map.put("/qaSend.do", new QaSend());
+		map.put("/qaSelect.do", new QaSelect());
+		
+		//상품등록
+		map.put("/prodAdd.do", new ProdAdd());
+		map.put("/prodRegister.do", new ProdRegister());
 	}
 
 	

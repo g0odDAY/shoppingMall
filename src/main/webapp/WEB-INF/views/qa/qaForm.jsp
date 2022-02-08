@@ -164,8 +164,8 @@ https://templatemo.com/tm-559-zay-shop
 <main> 
 	<figure class="banner">
 		<div class="figure_header">
-			<h2>Contact us</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur.</p>
+			<h2>찾아 오시는길</h2>
+			<p>대구광역시 중구 중앙대로 403 (남일동 135-1, 5층)</p>
 		</div>
 	</figure>	
 	<section>
@@ -174,25 +174,25 @@ https://templatemo.com/tm-559-zay-shop
 			<div id="map"><br>&nbsp;지도가 표시될 영역</div>
 		</article>
 		<aside>
-			<form action="qaList.do">
+			<form action="qaSend.do" method="get">
 				<fieldset>
-					<legend>Send us Email</legend>
+					<legend>문의 작성해주세요.</legend>
 					<div class="form-group">
-						<label for="name">Name</label>	
-						<input type="text" id="name" name="name">
+						<label for="writer">작성자</label>	
+						<input type="text" id="qa_writer" name="qa_writer">
 					</div>
 					<div class="form-group">
-						<label for="phone">Phone</label>
-						<input type="text" id="phone" name="phone">
+						<label for="title">제목</label>
+						<input type="text" id="qa_title" name="qa_title">
 					</div>
 					<div class="form-group">
-						<label for="email">Email</label>
-						<input type="email" id="email" name="email">
+						<label for="content">내용</label>
+						<textarea rows="4" id="qa_content" name="qa_content"></textarea>
 					</div>
 					<div class="form-group">
-						<label for="msg">Message</label>
-						<textarea name="msg" id="msg" cols="30" rows="8"></textarea>
+						<input type="date" id="qa_date" name="qa_date" readonly>
 					</div>
+					
 					<div class="form-group">
 						<button>SEND</button>
 					</div>
@@ -253,7 +253,19 @@ https://templatemo.com/tm-559-zay-shop
 		}	// end initMap();
 
     </script>
-
+<script type="text/javascript">
+		var d1 = new Date();
+		var y1 = d1.getFullYear();
+		var m1 = d1.getMonth() + 1;
+		if (m1 < 10)
+			m1 = "0" + m1;
+		var dt1 = d1.getDate();
+		if (dt1 < 10)
+			dt1 = "0" + dt1;
+		var d2 = y1 + "-" + m1 + "-" + dt1;
+		console.log(d2);
+		document.getElementById('qa_date').value = d2;
+	</script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA79F3HwKaIZZGfFmXbW6esaI6fqbxti0I&callback=initMap"
     async defer></script>
 

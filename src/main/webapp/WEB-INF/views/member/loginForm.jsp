@@ -41,7 +41,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href=# class="btn btn-primary btn-user btn-block">
+                                        <a href="login.do" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a>
                                         <hr>

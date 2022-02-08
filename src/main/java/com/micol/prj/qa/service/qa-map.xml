@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micol.prj.qa.service.QaMapper">
+<resultMap type="com.micol.prj.qa.vo.QaVO" id="qaMap">
+	<id property="qaNumber" column="qa_number"/><!-- 프라이머리키는 id나머지는 result -->
+	<result property="qaWriter" column="qa_writer"/>
+	<result property="qaTitle" column="qa_title"/>
+	<result property="qaContent" column="qa_content"/>
+	<result property="qaDate" column="qa_date"/>
+	
+</resultMap>
+	<select id="qaSelectList" resultType="com.micol.prj.qa.vo.QaVO">
+		SELECT	QA_NUMBER AS QANUMBER,
+				QA_WRITER AS QAWRITER,
+				QA_TITLE AS QATITLE,
+				QA_CONTENT AS QACONTENT,
+				QA_DATE AS QADATE
+				FROM QA ORDER BY QA_NUMBER ASC
+	</select>
+	
+	<select id="qaSelect" resultMap="qaMap">
+	SELECT * FROM QA
+	WHERE QA_NUMBER = #{qaNumber}				
+	</select>
+	
+	<insert id="qaInsert" parameterType="com.micol.prj.qa.vo.QaVO" >
+		<selectKey keyProperty="qaNumber" resultType="int" order="BEFORE">
+			SELECT MAX(QA_NUMBER)+1 FROM QA
+			
+		</selectKey>
+		
+		INSERT INTO QA(QA_NUMBER,QA_WRITER,QA_TITLE,QA_CONTENT,QA_DATE)
+		VALUES(#{qaNumber},#{qaWriter},#{qaTitle},#{qaContent},#{qaDate})
+	
+	</insert>
+	
+
+
+
+</mapper>

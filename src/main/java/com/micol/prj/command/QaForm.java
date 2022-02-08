@@ -5,12 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.micol.prj.common.Command;
 
-public class Shop implements Command {
+public class QaForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
 		// TODO Auto-generated method stub
-		return "shop/shop";
+		
+		return "qa/qaForm";
 	}
 
 }

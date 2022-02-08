@@ -23,10 +23,13 @@
                             <a class="nav-link" href="notice.do">공지사항</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.do">상품보러가기</a>
+                            <a class="nav-link" href="prodList.do">상품보러가기</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="qaList.do">고객문의</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="prodRegister.do">상품등록</a>
                         </li>
                     </ul>
                 </div>

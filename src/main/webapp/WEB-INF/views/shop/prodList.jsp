@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -38,6 +39,7 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Close Header -->
 
     <!-- Modal -->
+   
     <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="w-100 pt-1 mb-5 text-right">
@@ -122,11 +124,13 @@ https://templatemo.com/tm-559-zay-shop
                         </div>
                     </div>
                 </div>
+                
                 <div class="row">
+                <c:forEach items="${prod }" var="prod">
                     <div class="col-md-4" id="prodImg">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
-                               <img class="card-img rounded-0 img-fluid" src="assets/img/mantoman.jpg" > 
+                               <img class="card-img rounded-0 img-fluid" src="assets/img/up/${prod.prodName }.jpg" > 
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
                                         <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
@@ -136,7 +140,7 @@ https://templatemo.com/tm-559-zay-shop
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">베이직맨투맨</a>
+                                <a href="shop-single.html" class="h3 text-decoration-none">${prod.prodName }</a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                     <li>M/L/X/XL</li>
                                     <li class="pt-2">
@@ -156,12 +160,14 @@ https://templatemo.com/tm-559-zay-shop
                                         <i class="text-muted fa fa-star"></i>
                                     </li>
                                 </ul>
-                                <p class="text-center mb-0">$250.00</p>
+                                <p class="text-center mb-0">${prod.prodPrice }원</p>
                             </div>
                         </div>
+                       </div>
+                        </c:forEach> 
                     </div>
-                    
-                <div div="row">
+                   
+                <div class="row">
                     <ul class="pagination pagination-lg justify-content-end">
                         <li class="page-item disabled">
                             <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>

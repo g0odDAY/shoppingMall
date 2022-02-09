@@ -11,8 +11,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.micol.prj.command.AddReply;
+import com.micol.prj.command.IdCheck;
+import com.micol.prj.command.LoginCommand;
 import com.micol.prj.command.LoginForm;
+import com.micol.prj.command.LogoutCommand;
 import com.micol.prj.command.MainCommand;
+import com.micol.prj.command.NoticeDeleteForm;
+import com.micol.prj.command.NoticeInsert;
+import com.micol.prj.command.NoticeInsertForm;
+import com.micol.prj.command.NoticeList;
+import com.micol.prj.command.NoticeSelect;
+import com.micol.prj.command.NoticeUpdate;
 import com.micol.prj.command.ProdAdd;
 import com.micol.prj.command.ProdRegister;
 import com.micol.prj.command.QaForm;
@@ -20,6 +30,8 @@ import com.micol.prj.command.QaList;
 import com.micol.prj.command.QaSelect;
 import com.micol.prj.command.QaSend;
 import com.micol.prj.command.Register;
+import com.micol.prj.command.RegisterCommand;
+import com.micol.prj.command.RegisterForm;
 import com.micol.prj.command.prodList;
 import com.micol.prj.common.Command;
 
@@ -37,9 +49,29 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map=new HashMap<String,Command>();
 		map.put("/main.do", new MainCommand());
+		//로그인
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/register.do", new Register());
-		map.put("/prodList.do", new prodList());
+		
+		map.put("/login.do",new LoginCommand());
+		map.put("/logout.do",new LogoutCommand());
+		map.put("/idCheck.do",new IdCheck());
+		map.put("/login.do", new LoginCommand());
+		map.put("/register.do",new RegisterCommand());
+//		map.put("/RegisterForm.do", new Register());
+		map.put("/Register.do", new RegisterForm());
+	
+		//notice
+		map.put("/noticeList.do", new NoticeList());
+		map.put("/noticeSelect.do", new NoticeSelect());
+		map.put("/noticeInsertForm.do", new NoticeInsertForm());
+		map.put("/noticeInsert.do", new NoticeInsert());
+//		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
+		map.put("/noticeUpdate.do", new NoticeUpdate());
+		map.put("/noticeDeleteForm.do", new NoticeDeleteForm());
+		
+		
+		
 		//qa
 		map.put("/qaForm.do", new QaForm());
 		map.put("/qaList.do", new QaList());
@@ -49,6 +81,10 @@ public class FrontController extends HttpServlet {
 		//상품등록
 		map.put("/prodAdd.do", new ProdAdd());
 		map.put("/prodRegister.do", new ProdRegister());
+		map.put("/prodList.do", new prodList());
+		//댓글
+		map.put("/addReply.do", new AddReply());
+		
 	}
 
 	

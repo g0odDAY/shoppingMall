@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="prodAdd.do" method="post" enctype="multipart/form-data">
+	<form action="prodAdd.do" method="post" >
 		<div class="form-group">
 			<label for="prodName">상품명</label> <input type="text"
 				class="form-control" id="prodName" Name="prodName">
@@ -20,10 +20,7 @@
 			<label for="prodPrice">상품가격</label> <input type="text"
 				class="form-control" id="prodPrice" Name="prodPrice">
 		</div>
-		<div class="form-group">
-			<label for="prodFile">상품이미지</label> <input type="file"
-				class="form-control-file" id="prodFile" name="prodFile">
-		</div>
+		
 		<button type="submit">전송</button>
 	</form>
 </body>

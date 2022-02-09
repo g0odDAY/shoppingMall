@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>register</title>
 </head>
 <body>
 <div class="container">
@@ -19,32 +19,39 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
-                                    </div>
-                                </div>
+                            <form class="user" onsubmit="return checkForm()"
+                          action="register.do" method="post">
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
-                                </div>
-                                <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <input type="text" class="form-control form-control-user" 
+                                          id="id" name="id"  placeholder="Enter Id...">
+                                    </div>
+                              
+                                <div class="form-group">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user"
+                                            id="Password" name="password" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                            id="RepeatPassword" placeholder="Repeat Password">
                                     </div>
+                                     <div class="form-group">
+                           <input type="text" class="form-control form-control-user"
+                              id="name" name="name" placeholder="Your Name" required="required">
+                        </div>
+                        <div class="form-group">
+                           <input type="text" class="form-control form-control-user"
+                              id="address" name="address" placeholder="Your Address">
+                        </div>
+                        <div class="form-group">
+                           <input type="tel" class="form-control form-control-user"
+                              id="tel" name="tel" placeholder="Your Telephone Number">
+                        </div>
+
+                       
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                <a href="Register.do"class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </a>
                                 <hr>
@@ -60,7 +67,7 @@
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" href="login.do">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>
@@ -69,6 +76,44 @@
         </div>
 
     </div>
+ <script type="text/javascript">
+      function idCheck() { // 아이디 중복체크 함수 ajax 이용 비동기 통신
+         $.ajax({
+            url : "idCheck.do",
+            type : "post",
+            data : {
+               id : $("#id").val()
+            }, // id 값이 id인 value를 가져옴
+            dataType : "text",
+            success : function(data) { // 변수에 돌아 올 값  
+               if (data == "0") {
+                  alert($("#id").val() + "\n이미 존재하는 아이디 입니다.");
+                  $("#id").val("");
+                  $("#id").focus();
+               } else {
+                  alert($("#id").val() + "\n사용가능한 아이디 입니다.");
+                  $("#idKey").val("Yes");
+               }
+            }
+         });
+      }
 
+      function checkForm() { // form validation
+         if ($("#idKey").val() != "Yes") {
+            alert("아이디 중복체크를 해주세요.");
+            return false;
+         }
+
+         if ($("#password").val() != $("#repeatpassword").val()) {
+            alert("패스워드가 일치 하지 않습니다.");
+            $("#password").val("");
+            $("#repeatPassword").val("");
+            $("#password").focus;
+            return false;
+         }
+         
+         return true;
+      }
+   </script>
 </body>
 </html>

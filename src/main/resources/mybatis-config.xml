@@ -25,7 +25,10 @@
   </environments>
   
   <mappers>
+  	<mapper resource="com/micol/prj/prod/service/prod-map.xml"/>
+  	<mapper resource="com/micol/prj/member/service/member-map.xml"/>
     <mapper resource="com/micol/prj/qa/service/qa-map.xml"/>
-    
+    <mapper resource="com/micol/prj/reply/service/reply-map.xml"/>
+    <mapper resource="com/micol/prj/notice/service/notice-map.xml"/>
   </mappers>
 </configuration>

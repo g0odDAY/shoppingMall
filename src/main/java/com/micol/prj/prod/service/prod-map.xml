@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.micol.prj.prod.service.ProdMapper">
-<resultMap type="com.micol.prj.prod.service.ProdMapper" id="prodMap">
+<!--<resultMap type="com.micol.prj.prod.service.ProdMapper" id="prodMap">
 	<result property="prodName" column="prod_name"/>
 	<result property="prodDis" column="prod_dis"/>
 	<result property="prodPrice" column="prod_price"/>
-</resultMap>
+</resultMap>-->
 <insert id="insertProd" parameterType="com.micol.prj.prod.vo.ProdVO">
 	INSERT INTO PRODUCT(PROD_NAME,PROD_DIS,PROD_PRICE)
 	VALUES(#{prodName},#{prodDis},#{prodPrice})

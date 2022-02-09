@@ -50,7 +50,10 @@
 	</div>
 </body>
 <script>
-	var reply=document.getElementById("reply");
+
+
+
+	/*var reply=document.getElementById("reply");
 	console.log(reply);
 	function addReply(number){
 		console.log(number);
@@ -92,7 +95,7 @@
 		
 		console.log(form);
 		reply.appendChild(form);
-		console.log(reply);
+		console.log(reply);*/
 	};
 </script>
 </html>

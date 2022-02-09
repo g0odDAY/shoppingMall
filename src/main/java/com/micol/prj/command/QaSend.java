@@ -12,10 +12,10 @@ public class QaSend implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		String w=req.getParameter("qa_writer");
-		String t=req.getParameter("qa_title");
-		String c=req.getParameter("qa_content");
-		String date=req.getParameter("qa_date");
+		String w=req.getParameter("writer");
+		String t=req.getParameter("title");
+		String c=req.getParameter("content");
+		String date=req.getParameter("date");
 		System.out.println(w+t+c+date);
 		QaService qaDAO=new QaServiceImpl();
 		QaVO vo=new QaVO();

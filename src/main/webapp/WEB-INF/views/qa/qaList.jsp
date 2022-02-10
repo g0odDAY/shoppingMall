@@ -21,7 +21,7 @@
   </thead>
   <tbody>
   <c:forEach items="${qa }" var="qa">
-    <tr onmouseover='this.style.background="orange";'
+    <tr onmouseover='this.style.background="orange"'
     onclick="qaSelect(${qa.qaNumber})">
       <th scope="row">${qa.qaNumber }</th>
       <td>${qa.qaWriter }</td>

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.micol.prj.command.AddProdReply;
 import com.micol.prj.command.AddReply;
+import com.micol.prj.command.DeleteReply;
 import com.micol.prj.command.IdCheck;
 import com.micol.prj.command.LoginCommand;
 import com.micol.prj.command.LoginForm;
@@ -89,6 +90,7 @@ public class FrontController extends HttpServlet {
 		map.put("/addProdReply.do", new AddProdReply());
 		//댓글
 		map.put("/addReply.do", new AddReply());
+		map.put("/deleteReply.do", new DeleteReply());
 		
 	}
 

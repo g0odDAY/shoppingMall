@@ -42,7 +42,7 @@
 			</div>
 			<button class="btn btn-primary btn-sm" type="button"
 				onclick="location.href='qaList.do'">목록</button>
-			<button class="btn btn-primary btn-sm" onclick="addReply(${qa.qaNumber })">댓글달기</button>
+			<button class="btn btn-primary btn-sm" onclick="addReply(${qa.qaNumber }); return false">댓글달기</button>
 		</div>
 	</div>
 	<div id="reply">
@@ -53,7 +53,7 @@
 
 
 
-	/*var reply=document.getElementById("reply");
+	var reply=document.getElementById("reply");
 	console.log(reply);
 	function addReply(number){
 		console.log(number);
@@ -74,7 +74,7 @@
 		hiddenInput1.setAttribute('type','hidden');
 		hiddenInput1.setAttribute('name','replyUser');
 		hiddenInput1.setAttribute('id','replyUser');
-		hiddenInput1.setAttribute('value','user1');
+		hiddenInput1.setAttribute('value','${id}');
 		//댓글내용
 		var input=document.createElement('input');
 		input.setAttribute('type','text');
@@ -95,7 +95,7 @@
 		
 		console.log(form);
 		reply.appendChild(form);
-		console.log(reply);*/
+		console.log(reply);
 	};
 </script>
 </html>

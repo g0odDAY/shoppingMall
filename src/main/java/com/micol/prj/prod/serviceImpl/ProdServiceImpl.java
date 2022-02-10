@@ -21,8 +21,14 @@ public class ProdServiceImpl implements ProdService {
 
 	@Override
 	public List<ProdVO> prodList() {
-		System.out.println("prodListService : " + map.prodList());
+		
 		return map.prodList();
+	}
+
+	@Override
+	public ProdVO selectProd(ProdVO vo) {
+		// TODO Auto-generated method stub
+		return map.selectProd(vo);
 	}
 
 }

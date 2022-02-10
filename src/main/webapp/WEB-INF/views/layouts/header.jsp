@@ -16,7 +16,7 @@
             <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                    <c:if test="${author == user }"> 
+                   
                         <li class="nav-item">
                             <a class="nav-link" href="main.do">홈으로</a>
                         </li>
@@ -29,12 +29,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="qaList.do">고객문의</a>
                         </li>
-                        </c:if>
-                        <c:if test="${author == admin }">
+                        
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="prodRegister.do">상품등록</a>
+               
                         </li>
-                        </c:if>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -56,7 +56,7 @@
                  	<c:if test="${not empty id }">
                  		<div>
                     	${id }님환영합니다.
-                    	 <a class="btn btn-primary btn-sm" href="loginForm.do"><strong>로그아웃</strong></a>
+                    	 <a class="btn btn-primary btn-sm" href="logout.do"><strong>로그아웃</strong></a>
                     	</div>
                  	 
                     	

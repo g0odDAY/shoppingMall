@@ -16,5 +16,11 @@
 	  ,			prod_dis as prodDis
 	  ,			prod_price as prodPrice  
 	  FROM 		PRODUCT
-	</select>
+</select>
+<select id="selectProd" parameterType="com.micol.prj.prod.vo.ProdVO" resultType="com.micol.prj.prod.vo.ProdVO">
+	SELECT PROD_NAME AS PRODNAME
+	  ,	   PROD_DIS AS PRODDIS
+	  ,	   PROD_PRICE AS PRODPRICE 
+	  FROM PRODUCT WHERE PROD_NAME = #{prodName}
+</select>
 </mapper>

@@ -104,13 +104,13 @@ https://templatemo.com/tm-559-zay-shop
                     <div class="col-md-6">
                         <ul class="list-inline shop-top-menu pb-3 pt-1">
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="#">All</a>
+                                <a class="h3 text-dark text-decoration-none mr-3" href="#">아우터</a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="#">Men's</a>
+                                <a class="h3 text-dark text-decoration-none mr-3" href="#">상의</a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none" href="#">Women's</a>
+                                <a class="h3 text-dark text-decoration-none" href="#">하의</a>
                             </li>
                         </ul>
                     </div>
@@ -127,7 +127,7 @@ https://templatemo.com/tm-559-zay-shop
                 
                 <div class="row">
                 <c:forEach items="${prod }" var="prod">
-                    <div class="col-md-4" id="prodImg">
+                    <div class="col-md-4" id="prodImg" onclick="selectProd('${prod.prodName}')">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
                                <img class="card-img rounded-0 img-fluid" src="assets/img/up/${prod.prodName }.jpg" > 
@@ -140,7 +140,7 @@ https://templatemo.com/tm-559-zay-shop
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">${prod.prodName }</a>
+                                <a href="shop-single.html" id="select" class="h3 text-decoration-none">${prod.prodName }</a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                     <li>M/L/X/XL</li>
                                     <li class="pt-2">
@@ -294,7 +294,9 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Start Footer -->
 
     <!-- End Footer -->
-
+	<form id="frm" action="selectProd.do" method="post">
+		<input type="hidden" id="selectName" name="selectName">
+	</form>
     <!-- Start Script -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
@@ -302,16 +304,11 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
     <script type="text/javascript">
-    var li=document.getElementById("prodImg");
-   
-		li.addEventListener("click",function(){
-			var link = 'shop-single.html';
-		    window.location.href = link;       //웹개발할때 숨쉬듯이 작성할 코드
-		    //window.location.replace(link);     // 이전 페이지로 못돌아감
-		   // window.open(link);
+		function selectProd(name){
 		
-
-		});
+			frm.selectName.value=name;
+			frm.submit();
+		}
     </script>
     <!-- End Script -->
 </body>

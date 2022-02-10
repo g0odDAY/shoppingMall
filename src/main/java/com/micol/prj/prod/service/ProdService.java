@@ -6,5 +6,6 @@ import com.micol.prj.prod.vo.ProdVO;
 
 public interface ProdService {
 	int insertProd(ProdVO vo);
+	ProdVO selectProd(ProdVO vo);
 	List<ProdVO> prodList();
 }

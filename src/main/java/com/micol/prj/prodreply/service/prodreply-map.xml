@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micol.prj.prodreply.service.ProdReplyMapper">
+<resultMap type="com.micol.prj.prodreply.vo.ProdReplyVO" id="prodReplyMap">
+	<result property="prodName" column="prodName"/>
+	<result property="writer" column="writer"/>
+	<result property="content" column="content"/>
+
+</resultMap>
+<insert id="prodReplyInsert" parameterType="com.micol.prj.prodreply.vo.ProdReplyVO">
+	INSERT INTO PRODREPLY(WRITER,CONTENT,PRODNAME)
+	VALUES(#{writer},#{content},#{prodName})
+
+</insert>
+<select id="prodReplySelectList" resultMap="prodReplyMap">
+	SELECT * FROM PRODREPLY
+	WHERE PRODNAME = #{prodName}
+</select>
+</mapper>

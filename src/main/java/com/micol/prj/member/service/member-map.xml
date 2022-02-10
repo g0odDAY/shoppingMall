@@ -11,7 +11,10 @@
 		</if>
 	</select>
 	
-	<insert id="memberInsert"></insert>
+	<insert id="memberInsert" parameterType="com.micol.prj.member.vo.MemberVO">
+		INSERT INTO MEMBER(ID,PASSWORD, NAME, TEL, ADDRESS)
+    	VALUES(#{id}, #{password}, #{name}, #{tel}, #{address})
+	</insert>
 	<update id="memberUpdate"></update>
 	<delete id="memberDelete"></delete>
 	

@@ -19,7 +19,7 @@
 
 
 body {
-  min-height: 100vh;
+  min-height: 50vh;
   background: #212534;
   display: flex;
   align-items: center;
@@ -113,7 +113,7 @@ a {
 </head>
 <body>
 <div class="card">
-	<form action="prodAdd.do" method="post" >
+	<form id="frm" action="prodAdd.do" method="post" >
 		<div class="form-group">
 			<label for="prodName">상품명</label> <input type="text"
 				class="form-control" id="prodName" Name="prodName">

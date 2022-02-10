@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.micol.prj.command.AddProdReply;
 import com.micol.prj.command.AddReply;
 import com.micol.prj.command.IdCheck;
 import com.micol.prj.command.LoginCommand;
@@ -32,7 +33,9 @@ import com.micol.prj.command.QaSend;
 import com.micol.prj.command.Register;
 import com.micol.prj.command.RegisterCommand;
 import com.micol.prj.command.RegisterForm;
+import com.micol.prj.command.Result;
 import com.micol.prj.command.prodList;
+import com.micol.prj.command.selectProd;
 import com.micol.prj.common.Command;
 
 
@@ -48,18 +51,18 @@ public class FrontController extends HttpServlet {
 	
 	public void init(ServletConfig config) throws ServletException {
 		map=new HashMap<String,Command>();
-		map.put("/main.do", new MainCommand());
 		//로그인
-		map.put("/loginForm.do", new LoginForm());
-		map.put("/register.do", new Register());
-		
-		map.put("/login.do",new LoginCommand());
-		map.put("/logout.do",new LogoutCommand());
-		map.put("/idCheck.do",new IdCheck());
-		map.put("/login.do", new LoginCommand());
-		map.put("/register.do",new RegisterCommand());
-//		map.put("/RegisterForm.do", new Register());
-		map.put("/Register.do", new RegisterForm());
+		  map.put("/main.do", new MainCommand());
+	      map.put("/loginForm.do", new LoginForm());
+	      map.put("/register.do", new Register());
+	      map.put("/login.do",new LoginCommand());
+	      map.put("/logout.do",new LogoutCommand());
+	      map.put("/idCheck.do",new IdCheck());
+	      map.put("/login.do", new LoginCommand());
+	      map.put("/register.do",new RegisterCommand());
+	      map.put("/Register.do", new RegisterForm());
+	      map.put("/Result.do", new Result());
+
 	
 		//notice
 		map.put("/noticeList.do", new NoticeList());
@@ -82,6 +85,8 @@ public class FrontController extends HttpServlet {
 		map.put("/prodAdd.do", new ProdAdd());
 		map.put("/prodRegister.do", new ProdRegister());
 		map.put("/prodList.do", new prodList());
+		map.put("/selectProd.do", new selectProd());
+		map.put("/addProdReply.do", new AddProdReply());
 		//댓글
 		map.put("/addReply.do", new AddReply());
 		

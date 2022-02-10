@@ -17,13 +17,13 @@ function setPopUpStart(obj){
 <body>
 <img src="img/3.png" id="shopPopUp">
 <form>
-	<input type=checkbox onClick="setPopUpStart(this)">오늘은 더이상 ㄴㄴ
+	<input type=checkbox onClick="setPopUpStart(this)">오늘은 더이상 안볼래요.
 </form>
 </body>
 <script>
 var shopPopUp=document.getElementById("shopPopUp");
 shopPopUp.addEventListener("click",function(){
-	var link = 'shop.do';
+	var link = 'noticeList.do';
     window.location.href = link;       //웹개발할때 숨쉬듯이 작성할 코드
     //window.location.replace(link);     // 이전 페이지로 못돌아감
     window.open(link);

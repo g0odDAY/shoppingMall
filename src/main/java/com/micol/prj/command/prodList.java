@@ -16,7 +16,7 @@ public class prodList implements Command {
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
 		ProdService dao = new ProdServiceImpl();
 		
-		System.out.println("prodListDAO : " + dao.prodList());
+		
 		req.setAttribute("prod", dao.prodList());
 		
 		return "shop/prodList";

@@ -21,9 +21,9 @@ public class QaSelect implements Command {
 		ReplyService  replyDAO=new ReplyServiceImpl();
 		ReplyVO re=new ReplyVO();
 		
-		
+		System.out.println("qaselect");
 		re.setReplyNumber(req.getParameter("qaNumber"));
-		vo.setQaNumber(Integer.valueOf(req.getParameter("qaNumber")));
+		vo.setQaNumber(req.getParameter("qaNumber"));
 		
 		req.setAttribute("qa", qaDAO.qaSelect(vo));
 		req.setAttribute("reply", replyDAO.replySelectList(re));

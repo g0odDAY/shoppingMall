@@ -42,60 +42,31 @@
 			</div>
 			<button class="btn btn-primary btn-sm" type="button"
 				onclick="location.href='qaList.do'">목록</button>
-			<button class="btn btn-primary btn-sm" onclick="addReply(${qa.qaNumber }); return false">댓글달기</button>
+			
 		</div>
 	</div>
-	<div id="reply">
-	
-	</div>
+	<form method="post" id="frm">
+		<input type="hidden" name="replyNumber" id="replyNumber" value="${qa.qaNumber}">
+		<input type="hidden" name="replyUser" id="replyUser" value="user1">
+		<h2>user:</h2><textarea rows="2" name="replyContent" id="replyContent" placeholder="댓글을 입력하세요...."></textarea>
+		<button onclick="addReply(); return false" class="btn btn-success btn-lg">댓글달기</button>
+	</form>
 </body>
 <script>
-
-
-
-	var reply=document.getElementById("reply");
-	console.log(reply);
-	function addReply(number){
-		console.log(number);
-		
-		var form=document.createElement('form');
-		form.setAttribute('method','post');
-		form.setAttribute('action','addReply.do');
-		form.innerText="댓글입력 : ";
-		console.log(form);
-		//글번호
-		var hiddenInput=document.createElement('input');
-		hiddenInput.setAttribute('type','hidden');
-		hiddenInput.setAttribute('name','replyNumber');
-		hiddenInput.setAttribute('id','replyNumber');
-		hiddenInput.setAttribute('value','${qa.qaNumber}');
-		//작성자
-		var hiddenInput1=document.createElement('input');
-		hiddenInput1.setAttribute('type','hidden');
-		hiddenInput1.setAttribute('name','replyUser');
-		hiddenInput1.setAttribute('id','replyUser');
-		hiddenInput1.setAttribute('value','${id}');
-		//댓글내용
-		var input=document.createElement('input');
-		input.setAttribute('type','text');
-		input.setAttribute('name','replyContent');
-		input.setAttribute('id','replyContent');
-		console.log(input);
-		
-		var btn=document.createElement('button');
-		btn.setAttribute('id','addBtn');
-		btn.setAttribute('text','submit');
-		btn.innerText="입력";
-		form.appendChild(hiddenInput);
-		form.appendChild(hiddenInput1);
-		form.appendChild(input);
-		form.appendChild(btn);
+	function addReply(){
+	var formData=$('#frm').serialize();
+	$.ajax({
+		url:'addReply.do',
+		type : "post",
+        data : formData,
+        dataType : "text",
+        success(data){
+        	
+        }
 		
 		
-		
-		console.log(form);
-		reply.appendChild(form);
-		console.log(reply);
-	};
+	});
+	location.reload();
+	}
 </script>
 </html>

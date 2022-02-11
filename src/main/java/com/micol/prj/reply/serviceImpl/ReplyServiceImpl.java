@@ -23,5 +23,10 @@ public class ReplyServiceImpl implements ReplyService{
 		// TODO Auto-generated method stub
 		return map.replySelectList(vo);
 	}
+	@Override
+	public int replyDelete(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		return map.replyDelete(vo);
+	}
 
 }

@@ -7,33 +7,39 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script type="text/javascript">
+	function submitFun(){
+		window.alert('공지를 등록하였습니다.');
+		document.forms.frm.submit();
+	}
+</script>
 <body>
-	<div align="center">
-		<div>
-			<h2>공지등록</h2>
-		</div>
-		<div>
+		<div class="bg-light rounded h-100 p-4" align="center">
+			<h1 class="mb-4" >공 지 등 록</h1>
 			<form id="frm" action="noticeInsert.do" method="post">
 				<div>
-					<table border="0">
+					<table class="table" style="width:1000px;">
 						<tr>
-							<th>제 목</th>
-							<td colspan="3">
-							<input type="text" size="59" id="noticeTitle" name="noticeTitle"></td>
+							<th class="form-floating" width="100">작성자</th>
+							<td><input class="form-control" id="noticeWriter" name="noticeWriter" value="${name }" readonly="readonly"></td>
 						</tr>
 						<tr>
-							<th>내 용</th>
-							<td colspan="3">
-							<textarea rows="10" cols="60" id="noticeSubject" name="noticeSubject"></textarea></td>
+							<th class="form-floating" width="100">제 목</th>
+							<td><input class="form-control" id="noticeTitle" name="noticeTitle"></td>
+						</tr>
+						<tr>
+							<th class="form-floating" width="100">내 용</th>
+							<td><textarea class="form-control" rows="10" id="noticeSubject" name="noticeSubject"></textarea></td>
 						</tr>
 					</table>
 				</div>
-				<br> 
-				<input class="btn btn-primary btn-sm" type="submit" value="등록">&nbsp;&nbsp; 
-				<input class="btn btn-primary btn-sm" type="reset" value="취소">&nbsp;&nbsp; 
+				<br>
+				<div align="right" style="width:1000px;">
+				<input class="btn btn-primary btn-sm" type="button" onclick="submitFun()" value="등록">&nbsp;&nbsp; 
+				<input class="btn btn-primary btn-sm" type="reset" value="초기화">&nbsp;&nbsp; 
 				<input class="btn btn-primary btn-sm" type="button" value="공지목록" onclick="location.href='noticeList.do'">
+				</div>
 			</form>
 		</div>
-	</div>
 </body>
 </html>

@@ -17,6 +17,7 @@
 	  ,			prod_price as prodPrice  
 	  FROM 		PRODUCT
 </select>
+
 <select id="selectProd" parameterType="com.micol.prj.prod.vo.ProdVO" resultType="com.micol.prj.prod.vo.ProdVO">
 	SELECT PROD_NAME AS PRODNAME
 	  ,	   PROD_DIS AS PRODDIS

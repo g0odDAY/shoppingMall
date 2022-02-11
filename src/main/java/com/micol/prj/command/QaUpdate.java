@@ -8,18 +8,18 @@ import com.micol.prj.qa.service.QaService;
 import com.micol.prj.qa.serviceImpl.QaServiceImpl;
 import com.micol.prj.qa.vo.QaVO;
 
-public class QaSend implements Command {
+public class QaUpdate implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		QaService qaDAO = new QaServiceImpl();
+		QaService dao = new QaServiceImpl();
 		QaVO vo = new QaVO();
-		vo.setQaWriter(req.getParameter("qaWriter"));
+		vo.setQaNumber(Integer.parseInt(req.getParameter("qaNumber")));
 		vo.setQaTitle(req.getParameter("qaTitle"));
 		vo.setQaContent(req.getParameter("qaContent"));
-		int n = qaDAO.qaInsert(vo);
-		if (n != 0) {
-			return "qaList.do";
+		int r = dao.qaUpdate(vo);
+		if (r > 0) {
+			return "qaSelect.do";
 		} else {
 			return "error/error";
 		}

@@ -5,9 +5,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
 
-<div class="container">
+
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -18,7 +19,7 @@
                     <div class="card-body p-5">
                      <div class="card text-white bg-success">
                         <!-- Nested Row within Card Body -->
-                        <div class="row p-10">
+                        <div class="row p-3">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last"></div>
                       <div id="login-image">
                     <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
@@ -26,13 +27,13 @@
                             <div align="center" class="col-lg-12">
                                 <div align="center" class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-grey-900 mb-4">Welcome Back Yedam Shop!</h1>
+                                        <h1 class="h4 text-grey-900 mb-4">Welcome Yedam Shop!</h1>
                                     </div>
                                     <form class="user" action="login.do" method="post">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="id" name="id" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Enter ID...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"

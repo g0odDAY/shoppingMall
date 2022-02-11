@@ -8,4 +8,5 @@ public interface ProdMapper {
 	int insertProd(ProdVO vo);
 	ProdVO selectProd(ProdVO vo);
 	List<ProdVO> prodList();
+	
 }

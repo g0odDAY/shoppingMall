@@ -9,9 +9,7 @@ public class QaForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		// TODO Auto-generated method stub
-		
-		return "qa/qaForm";
+		return "qa/qaInsert";
 	}
 
 }

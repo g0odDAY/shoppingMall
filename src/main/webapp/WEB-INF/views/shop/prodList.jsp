@@ -110,7 +110,7 @@ https://templatemo.com/tm-559-zay-shop
                                 <a class="h3 text-dark text-decoration-none mr-3" href="#">상의</a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none" href="#">하의</a>
+                                <a class="h3 text-dark text-decoration-none" href="bottomProdList.do">하의</a>
                             </li>
                         </ul>
                     </div>

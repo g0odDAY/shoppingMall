@@ -2,16 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.micol.prj.reply.service.ReplyMapper">
 <resultMap type="com.micol.prj.reply.vo.ReplyVO" id="replyMap">
-	<result property="replyNumber" column="replynumber"/><!-- 프라이머리키는 id나머지는 result -->
-	<result property="replyUser" column="replyuser"/>
-	<result property="replyContent" column="replycontent"/>
+	<result property="replyNumber" column="reply_number"/><!-- 프라이머리키는 id나머지는 result -->
+	<result property="replyUser" column="reply_user"/>
+	<result property="replyContent" column="reply_content"/>
+	<result property="replyId" column="reply_id"/>
 </resultMap>
 <select id="replySelectList" resultMap="replyMap">
 	SELECT * FROM REPLY
-	WHERE REPLYNUMBER = #{replyNumber}
+	WHERE REPLY_NUMBER = #{replyNumber}
+	ORDER BY REPLY_ID DESC
 </select>
 <insert id="replyInsert" parameterType="com.micol.prj.reply.vo.ReplyVO">
 	INSERT INTO REPLY
-	VALUES(#{replyNumber},#{replyUser},#{replyContent})
+	VALUES(#{replyNumber},#{replyUser},#{replyContent}, REPLY_ID_NUM.NEXTVAL)
 </insert>
+<delete id="replyDelete" parameterType="com.micol.prj.reply.vo.ReplyVO">
+	DELETE FROM REPLY WHERE REPLY_ID = #{replyId}
+</delete>
 </mapper>

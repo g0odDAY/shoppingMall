@@ -19,10 +19,9 @@ public class NoticeUpdate implements Command {
 		vo.setNoticeSubject(req.getParameter("noticeSubject"));
 		int n = dao.noticeUpdate(vo);
 		if (n > 0) {
-			return "noticeList.do";
+			return "noticeSelect.do";
 		} else {
-			req.setAttribute("massage", "등록에 실패했습니다.");
-			return "/notice/noticeError";
+			return "/error/error";
 		}
 	}
 

@@ -5,130 +5,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-@property --rotate {
-  syntax: "<angle>";
-  initial-value: 132deg;
-  inherits: false;
-}
 
-:root {
-  --card-height: 65vh;
-  --card-width: calc(var(--card-height) / 1.5);
-}
-
-
-body {
-  min-height: 50vh;
-  background: #212534;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  box-sizing: border-box;
-}
-
-
-.card {
-  background: #191c29;
-  width: var(--card-width);
-  height: var(--card-height);
-  padding: 3px;
-  position: relative;
-  border-radius: 6px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display: flex;
-  font-size: 1.5em;
-  color: rgb(88 199 250 / 0%);
-  cursor: pointer;
-  font-family: cursive;
-}
-
-.card:hover {
-  color: rgb(88 199 250 / 100%);
-  transition: color 1s;
-}
-.card:hover:before, .card:hover:after {
-  animation: none;
-  opacity: 0;
-}
-
-
-.card::before {
-  content: "";
-  width: 104%;
-  height: 102%;
-  border-radius: 8px;
-  background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
-    position: absolute;
-    z-index: -1;
-    top: -1%;
-    left: -2%;
-    animation: spin 2.5s linear infinite;
-}
-
-.card::after {
-  position: absolute;
-  content: "";
-  top: calc(var(--card-height) / 6);
-  left: 0;
-  right: 0;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
-  transform: scale(0.8);
-  filter: blur(calc(var(--card-height) / 6));
-  background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
-    opacity: 1;
-  transition: opacity .5s;
-  animation: spin 2.5s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    --rotate: 0deg;
-  }
-  100% {
-    --rotate: 360deg;
-  }
-}
-
-a {
-  color: #212534;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-weight: bold;
-  margin-top: 2rem;
-}
-
-</style>
 </head>
 <body>
-<div class="card">
-	<form id="frm" action="prodAdd.do" method="post" >
-		<div class="form-group">
-			<label for="prodName">상품명</label> <input type="text"
-				class="form-control" id="prodName" Name="prodName">
-		</div>
-		<div class="form-group">
-			<label for="prodDis">상품설명</label>
-			<textarea class="form-control" id="prodDis" name="prodDis" rows="3"></textarea>
-		</div>
-		<div class="form-group">
-			<label for="prodPrice">상품가격</label> <input type="text"
-				class="form-control" id="prodPrice" Name="prodPrice">
-		</div>
-		
-		<button type="submit">전송</button>
-	</form>
+
+	
+	<div class="bg-light rounded h-100 p-4" align="center">
+		<form id="frm" action="main.do" method="post">
+			<div class="mb-4">
+				<h1>상 품 등 록</h1>
+			</div>
+			<table class="table" style="width:1000px;">
+			<thead class="text-center mb-0">
+			<tr>
+				<th class="form-floating">상품명</th> 
+				<td><input  class="form-control" type="text" class="form-control" id="prodName" Name="prodName"></td>
+			</tr>
+			<tr>
+				<th class="form-floating" style="vertical-align: top;">상품설명</th>
+				<td><textarea class="form-control" rows="3" id="prodDis" name="prodDis" rows="3"></textarea></td>
+			</tr>
+			<tr>
+				<th class="form-floating">상품가격</th> 
+				<td><input  class="form-control" type="text" class="form-control" id="prodPrice" Name="prodPrice"></td>
+			</tr>
+			</thead>
+			</table>
+			<div align="right" style="width:1000px;">
+			<input class="btn btn-primary btn-sm" type="submit" value="등록">
+			</div>
+		</form>
 	</div>
+
 </body>
 </html>

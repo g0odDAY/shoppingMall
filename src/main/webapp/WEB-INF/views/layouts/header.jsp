@@ -30,11 +30,12 @@
                             <a class="nav-link" href="qaList.do">고객문의</a>
                         </li>
                         
-                       
+                       <c:if test="${author == 'ADMIN' }">
                         <li class="nav-item">
                             <a class="nav-link" href="prodRegister.do">상품등록</a>
                
                         </li>
+                        </c:if>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -49,18 +50,17 @@
                     <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
-                    
-					<c:if test="${empty id }">                    
-                     <a class="btn btn-primary btn-sm" href="loginForm.do"><strong>로그인</strong></a>
-                 	 </c:if>
-                 	<c:if test="${not empty id }">
-                 		<div>
-                    	${id }님환영합니다.
-                    	 <a class="btn btn-primary btn-sm" href="logout.do"><strong>로그아웃</strong></a>
-                    	</div>
-                 	 
-                    	
-                 	 </c:if>
+                    <c:if test="${not empty id }">
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+                    </c:if>
+					
                 </div>
             </div>
 

@@ -10,8 +10,9 @@ public class DeleteReply implements Command {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
 		// TODO Auto-generated method stub
-		String id=req.getParameter("id");
-		System.out.println("id=="+id);
+		
+		String content=req.getParameter("code");
+		System.out.println("content=="+content);
 		return null;
 	}
 

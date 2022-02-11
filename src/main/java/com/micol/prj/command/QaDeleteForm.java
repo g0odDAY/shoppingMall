@@ -8,17 +8,15 @@ import com.micol.prj.qa.service.QaService;
 import com.micol.prj.qa.serviceImpl.QaServiceImpl;
 import com.micol.prj.qa.vo.QaVO;
 
-public class QaSend implements Command {
+public class QaDeleteForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-		QaService qaDAO = new QaServiceImpl();
+		QaService dao = new QaServiceImpl();
 		QaVO vo = new QaVO();
-		vo.setQaWriter(req.getParameter("qaWriter"));
-		vo.setQaTitle(req.getParameter("qaTitle"));
-		vo.setQaContent(req.getParameter("qaContent"));
-		int n = qaDAO.qaInsert(vo);
-		if (n != 0) {
+		vo.setQaNumber(Integer.parseInt(req.getParameter("qaNumber")));
+		int r = dao.qaDelete(vo);
+		if (r > 0) {
 			return "qaList.do";
 		} else {
 			return "error/error";

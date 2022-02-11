@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class QaVO {
-	private String qaNumber;
+	private int qaNumber;
 	private String qaWriter;
 	private String qaTitle;
 	private String qaContent;

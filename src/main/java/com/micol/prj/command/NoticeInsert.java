@@ -1,7 +1,5 @@
 package com.micol.prj.command;
 
-import java.sql.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,22 +12,17 @@ public class NoticeInsert implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse res) {
-
 		NoticeService noticeDao = new NoticeServiceImpl();
 		NoticeVO vo = new NoticeVO();
-		vo.setNoticeWriter(req.getParameter("noticeWirter"));
+		vo.setNoticeWriter(req.getParameter("noticeWriter"));
 		vo.setNoticeTitle(req.getParameter("noticeTitle"));
 		vo.setNoticeSubject(req.getParameter("noticeSubject"));
-
-		String viewPage = null;
 		int n = noticeDao.noticeInsert(vo);
 		if (n > 0) {
-			viewPage = "noticeList.do";
+			return "noticeList.do";
 		} else {
-			req.setAttribute("massage", "등록에 실패했습니다.");
-			viewPage = "/notice/noticeError";
+			return "/error/error";
 		}
-		return viewPage;
 	}
 
 }

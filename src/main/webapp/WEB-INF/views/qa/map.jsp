@@ -31,7 +31,7 @@ https://templatemo.com/tm-559-zay-shop
 
 
 	
-<style>
+<!-- <style>
 	*{ margin: 0; padding: 0;}
 	body{ color: #333; }
 	a{ text-decoration: none; color: #333;}
@@ -128,7 +128,7 @@ https://templatemo.com/tm-559-zay-shop
 		background: #ff80ab;
 	}
 
-</style>
+</style> -->
 </head>
 
 <body>
@@ -174,51 +174,31 @@ https://templatemo.com/tm-559-zay-shop
 			<div id="map"><br>&nbsp;지도가 표시될 영역</div>
 		</article>
 		<aside>
-			<form  action="qaSend.do" method="post">
+			<form action="qaSend.do" method="post">
 				<fieldset>
 					<legend>문의 작성해주세요.</legend>
 					<div class="form-group">
-						<label for="writer">작성자</label>	
-						<input type="text" id="writer" name="writer">
-					</div>
-					<div class="form-group">
 						<label for="title">제목</label>
-						<input type="text" id="title" name="title">
+						<input type="text" id="qa_title" name="qa_title">
+						<input type="hidden" id="qa_writer" name="qa_writer" value="${name }">
 					</div>
 					<div class="form-group">
 						<label for="content">내용</label>
-						<textarea rows="4" id="content" name="content"></textarea>
+						<textarea rows="4" id="qa_content" name="qa_content"></textarea>
 					</div>
 					<div class="form-group">
-						<input type="date" id="date" name="date" readonly >
-					</div>
-					
-					<div class="form-group">
-						<button >SEND</button>
+						<button>SEND</button>
 					</div>
 				</fieldset>
 			</form>
 		</aside>
 	</section>
 </main>
-	<!--  <script type="text/javascript">
-      function idCheck() { 
-         $.ajax({
-            url : "qaSend.do",
-            type : "post",
-            data : {
-               writer : $("#qa_writer").val(),
-               title : $("#qa_title").val(),
-               content : $("#qa_content").val(),
-               date : $("#qa_date").val()
-            }, 
-            dataType : "text"
-            
-         });
-      }
-   </script>-->
+	
     <script>
+
 		function initMap() {
+
 			// 맵 스타일 정의
 			var styleArray = [
 			  {
@@ -266,7 +246,7 @@ https://templatemo.com/tm-559-zay-shop
 		}	// end initMap();
 
     </script>
-	<script type="text/javascript">
+<script type="text/javascript">
 		var d1 = new Date();
 		var y1 = d1.getFullYear();
 		var m1 = d1.getMonth() + 1;
@@ -276,10 +256,50 @@ https://templatemo.com/tm-559-zay-shop
 		if (dt1 < 10)
 			dt1 = "0" + dt1;
 		var d2 = y1 + "-" + m1 + "-" + dt1;
-		
-		document.getElementById('date').value = d2;
+		console.log(d2);
+		document.getElementById('qa_date').value = d2;
 	</script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA79F3HwKaIZZGfFmXbW6esaI6fqbxti0I&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA79F3HwKaIZZGfFmXbW6esaI6fqbxti0I&callback=initMap" async defer>
+    </script>
+    <script type="text/javascript">
+      function idCheck() { // 아이디 중복체크 함수 ajax 이용 비동기 통신
+         $.ajax({
+            url : "idCheck.do",
+            type : "post",
+            data : {
+               id : $("#id").val()
+            }, // id 값이 id인 value를 가져옴
+            dataType : "text",
+            success : function(data) { // 변수에 돌아 올 값  
+               if (data == "0") {
+                  alert($("#id").val() + "\n이미 존재하는 아이디 입니다.");
+                  $("#id").val("");
+                  $("#id").focus();
+               } else {
+                  alert($("#id").val() + "\n사용가능한 아이디 입니다.");
+                  $("#idKey").val("Yes");
+               }
+            }
+         });
+      }
+
+      function checkForm() { // form validation
+         if ($("#idKey").val() != "Yes") {
+            alert("아이디 중복체크를 해주세요.");
+            return false;
+         }
+
+         if ($("#password").val() != $("#repeatpassword").val()) {
+            alert("패스워드가 일치 하지 않습니다.");
+            $("#password").val("");
+            $("#repeatPassword").val("");
+            $("#password").focus;
+            return false;
+         }
+         
+         return true;
+      }
+   </script>
 
 </body>
 </html>

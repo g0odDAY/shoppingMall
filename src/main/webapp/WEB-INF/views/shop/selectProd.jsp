@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-#prodReply{
-	text-align: center;;
-	background:#dddddd;
-}
+	#reply{
+	background:  #59ab6e;
+	
+	border-radius: 10px;
+	}
 </style>
 </head>
 <body>
@@ -149,7 +151,7 @@
                                 </li>
                             </ul>
 
-                            <h6>Specification:</h6>
+                            <h6>특징:</h6>
                             <ul class="list-unstyled pb-3">
                                 <li>Lorem ipsum dolor sit</li>
                                 <li>Amet, consectetur</li>
@@ -202,26 +204,39 @@
             </div>
         </div>
     </section>
-    <section>
-    <div id="reply1">
-		<c:forEach var="reply" items="${prodReply }">
-		<div>└>${reply.writer } : ${reply.content}</div><br>
-		
-		</c:forEach>
-	</div>
-	</section>
+
     <section>
     <form id="form1" name="form1" method="post">
-    <div>
-    	<h4>${id }</h4>
-    	댓글:<input id="prodReplyContent" name="prodReplyContent" placeholder='댓글을입력하세요..' ><br>
-    	<input type="hidden" name="prodReplyWriter" id="prodReplyWriter" value="${id }">
-    	<input type="hidden" name="prodReplyName" id="prodReplyName" value="${prod.prodName }">
-    	<button onclick="addProdReply(); return false" class="btn btn-success btn-lg">댓글달기</button>
+    <div class="mb-3 row">
+    <input type="hidden" name="prodReplyName" id="prodReplyName" value="${prod.prodName }">
+    <label for="staticEmail" class="col-sm-2 col-form-label">작성자 : ${id }</label>
+    <div class="col-sm-10">
+      <input type="hidden" readonly class="form-control-plaintext" name="prodReplyWriter" id="prodReplyWriter" value="${id }">
     </div>
-    
+  </div>
+ <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="prodReplyContent" name="prodReplyContent"></textarea>
+  <label for="floatingTextarea">지나친비방은 삼가해주세요.</label>
+</div>
+<div>
+	<button onclick="addProdReply(); return false" class="btn btn-success btn-lg">댓글달기</button>
+</div>
     </form>
-    </section>
+    </section><br>
+        <section>
+	<table class="table table-hover">
+		<tbody>
+		<c:forEach var="reply" items="${prodReply }">
+		 <div  id="reply" align="justify" style="max-width:600px;">
+  			<div>
+    		<h4><i class="bi bi-chat-dots"></i>${reply.writer }</h4>
+    		<p >└>${reply.content }</p>
+  			</div>
+		</div>
+		 </c:forEach>
+		</tbody>
+	</table>
+	</section>
     
     
     <script>

@@ -8,4 +8,5 @@ public class ReplyVO {
 	private String replyNumber;
 	private String replyUser;
 	private String replyContent;
+	private int replyId;
 }

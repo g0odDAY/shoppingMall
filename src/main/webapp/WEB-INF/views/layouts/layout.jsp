@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +43,7 @@ https://templatemo.com/tm-559-zay-shop
 
 <body>
     <!-- Start Top Nav -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+  <nav class="navbar navbar-expand-lg bg-black navbar-light d-none d-lg-block" id="templatemo_nav_top">
         <div class="container text-light">
             <div class="w-100 d-flex justify-content-between">
                 <div>
@@ -51,8 +52,8 @@ https://templatemo.com/tm-559-zay-shop
                     <i class="fa fa-phone mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
                    <form><input type=button value="쿠키삭제" onclick="deleteCookie()"></form>
-					
-					
+               
+               
         
                 </div>
                 <div>
@@ -60,17 +61,29 @@ https://templatemo.com/tm-559-zay-shop
                     <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
                     <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
                     <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                    <br>
+                    <c:if test="${empty id }">                    
+                     <a class="btn btn-primary btn-sm" href="loginForm.do"><strong>로그인</strong></a>
+                 	 </c:if>
+                 	<c:if test="${not empty id }">
+                 		<div>
+                    	${id }님환영합니다.
+                    	 <a class="btn btn-primary btn-sm" href="logout.do"><strong>로그아웃</strong></a>
+                    	</div>
+                 	 
+                    	
+                 	 </c:if>
                 </div>
             </div>
         </div>
     </nav>
+
     <!-- Close Top Nav -->
 
 
     <!-- Header -->
  <tiles:insertAttribute name="header"/>
     <!-- Close Header -->
-
     <!-- Modal -->
     <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">

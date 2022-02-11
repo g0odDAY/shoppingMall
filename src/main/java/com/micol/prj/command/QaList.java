@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.micol.prj.common.Command;
-
 import com.micol.prj.qa.service.QaService;
 import com.micol.prj.qa.serviceImpl.QaServiceImpl;
 

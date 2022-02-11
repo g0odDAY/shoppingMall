@@ -8,50 +8,44 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="card-body" align="center">
-		<div>
-			<h2>공지사항</h2>
-		</div>
-		<div>
-			<table border="0" style="width: 800px">
-				<thead class="text-center mb-0">
-					<tr>
-						<%-- <c:if test="${'' }"> --%>
-						<th>
-							<button class="btn btn-primary btn-sm" type="button" onclick="location.href='noticeInsertForm.do'">공지등록</button>
-						</th>
-						<%-- </c:if> --%>
+	<div class="bg-light rounded h-100 p-4" align="center">
+		<h1 class="mb-4">공 지 사 항</h1>
+		<table class="table table-hover" style="width:1000px;">
+			<thead class="text-center mb-0">
+				<tr>
+					<th scope="col">글번호</th>
+					<th scope="col">글제목</th>
+					<th scope="col">작성자</th>
+					<th scope="col">작성일자</th>
+					<th scope="col">조회수</th>
+				</tr>
+			</thead>
+			<tbody class="text-center mb-0">
+				<c:forEach items="${notices }" var="notice">
+					<tr onclick="noticeSelect(${notice.noticeId})">
+						<td scope="col">${notice.noticeId }</td>
+						<td scope="col" align="left">${notice.noticeTitle }</td>
+						<td scope="col">${notice.noticeWriter }</td>
+						<td scope="col">${notice.noticeDate }</td>
+						<td scope="col">${notice.noticeHit }</td>
 					</tr>
-					<tr>
-						<th width="100">글번호</th>
-						<th width="300" align="left">글제목</th>
-						<th width="150">작성자</th>
-						<th width="150">작성일자</th>
-						<th width="100">조회수</th>
-					</tr>
-				</thead>
-				<tbody class="text-center mb-0">
-					<c:forEach items="${notices }" var="notice">
-						<tr onclick="noticeSelect(${notice.noticeId})">
-							<td>${notice.noticeId }</td>
-							<td align="left">${notice.noticeTitle }</td>
-							<td>${notice.noticeWriter }</td>
-							<td>${notice.noticeDate }</td>
-							<td>${notice.noticeHit }</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
+				</c:forEach>
+			</tbody>
+		</table>
 		<br>
-
-		<div>
-			<form id="frm" action="noticeSelect.do" method="post">
-				<input type="hidden" id="noticeId" name="noticeId">
-			</form>
-		</div>
-
+		<c:if test="${author == 'ADMIN' }">
+			<div align="right" style="width:1000px;">
+				<input class="btn btn-primary btn-sm" type="button" value="공지등록"
+					onclick="location.href='noticeInsertForm.do'">
+			</div>
+		</c:if>
 	</div>
+	<div>
+		<form id="frm" action="noticeSelect.do" method="post">
+			<input type="hidden" id="noticeId" name="noticeId">
+		</form>
+	</div>
+
 	<script type="text/javascript">
 		function noticeSelect(id) { 
 			frm.noticeId.value = id;

@@ -42,17 +42,17 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_01.jpg" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="assets/img/1.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_02.jpg" alt="Product Image 2">
+                                                <img class="card-img img-fluid" src="assets/img/2.jpg" alt="Product Image 2">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_03.jpg" alt="Product Image 3">
+                                                <img class="card-img img-fluid" src="assets/img/3.jpg" alt="Product Image 3">
                                             </a>
                                         </div>
                                     </div>
@@ -64,17 +64,17 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_04.jpg" alt="Product Image 4">
+                                                <img class="card-img img-fluid" src="assets/img/4.jpg" alt="Product Image 4">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_05.jpg" alt="Product Image 5">
+                                                <img class="card-img img-fluid" src="assets/img/5.jpg" alt="Product Image 5">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_06.jpg" alt="Product Image 6">
+                                                <img class="card-img img-fluid" src="assets/img/6.jpg" alt="Product Image 6">
                                             </a>
                                         </div>
                                     </div>
@@ -86,17 +86,17 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_07.jpg" alt="Product Image 7">
+                                                <img class="card-img img-fluid" src="assets/img/7.jpg" alt="Product Image 7">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_08.jpg" alt="Product Image 8">
+                                                <img class="card-img img-fluid" src="assets/img/8.jpg" alt="Product Image 8">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_09.jpg" alt="Product Image 9">
+                                                <img class="card-img img-fluid" src="assets/img/9.jpg" alt="Product Image 9">
                                             </a>
                                         </div>
                                     </div>
@@ -216,31 +216,50 @@
   </div>
  <div class="form-floating">
   <textarea class="form-control" placeholder="Leave a comment here" id="prodReplyContent" name="prodReplyContent"></textarea>
-  <label for="floatingTextarea">지나친비방은 삼가해주세요.</label>
+  <label for="floatingTextarea">댓글을달아주세요.</label>
 </div>
 <div>
 	<button onclick="addProdReply(); return false" class="btn btn-success btn-lg">댓글달기</button>
 </div>
     </form>
     </section><br>
+    
         <section>
-	<table class="table table-hover">
-		<tbody>
+	
 		<c:forEach var="reply" items="${prodReply }">
-		 <div  id="reply" align="justify" style="max-width:600px;">
+		<form id="frm" name="frm" method="post">
+		 <div  id="reply" align="justify" class="comment"  style="max-width:300px;">
   			<div>
-    		<h4><i class="bi bi-chat-dots"></i>${reply.writer }</h4>
-    		<p >└>${reply.content }</p>
+	    		<h4>${reply.writer } : ${reply.content }</h4>
+	    		<input type="hidden" id="serial" name="serial" class="serial" value="${reply.serial }">
   			</div>
+  			
 		</div>
+		<button class="btn btn-success btn-lg" onclick="deleteProdReply(); return false">삭제</button>
+		</form>
+		
 		 </c:forEach>
-		</tbody>
-	</table>
+	
 	</section>
     
     
     <script>
    
+   
+    function deleteProdReply(){
+    	 var code = $('#frm').serialize();
+    console.log(code);
+    	 $.ajax({
+	            url : "deleteProdReply.do",
+	            type : "post",
+	            data : code,
+	            dataType : "text",
+	            success(data){
+	            	location.reload();	
+	            }
+		 });
+    }
+     
 	function addProdReply(){
 		 var formData = $('#form1').serialize();	
 		console.log(formData);

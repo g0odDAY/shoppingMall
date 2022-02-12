@@ -8,4 +8,5 @@ public class ProdReplyVO {
 	private String writer;
 	private String content;
 	private String prodName;
+	private String serial;
 }

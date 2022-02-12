@@ -37,6 +37,7 @@ import com.micol.prj.command.RegisterForm;
 import com.micol.prj.command.ReplyAdd;
 import com.micol.prj.command.ReplyDelete;
 import com.micol.prj.command.Result;
+import com.micol.prj.command.deleteProdReply;
 import com.micol.prj.command.prodList;
 import com.micol.prj.command.selectProd;
 import com.micol.prj.common.Command;
@@ -85,7 +86,7 @@ public class FrontController extends HttpServlet {
 		map.put("/prodAdd.do", new ProdAdd());
 		map.put("/prodRegister.do", new ProdRegister());
 		map.put("/prodList.do", new prodList());
-
+		map.put("/deleteProdReply.do", new deleteProdReply());
 		map.put("/selectProd.do", new selectProd());
 		map.put("/addProdReply.do", new AddProdReply());
 		

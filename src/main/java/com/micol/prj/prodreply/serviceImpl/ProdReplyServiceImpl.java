@@ -25,4 +25,10 @@ public class ProdReplyServiceImpl implements ProdReplyService {
 		return map.prodReplySelectList(vo);
 	}
 
+	@Override
+	public int prodReplyDelete(ProdReplyVO vo) {
+		// TODO Auto-generated method stub
+		return map.prodReplyDelete(vo);
+	}
+
 }

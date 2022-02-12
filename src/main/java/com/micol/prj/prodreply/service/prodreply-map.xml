@@ -5,15 +5,19 @@
 	<result property="prodName" column="prodName"/>
 	<result property="writer" column="writer"/>
 	<result property="content" column="content"/>
-
+	<result property="serial" column="serial"/>
 </resultMap>
 <insert id="prodReplyInsert" parameterType="com.micol.prj.prodreply.vo.ProdReplyVO">
-	INSERT INTO PRODREPLY(WRITER,CONTENT,PRODNAME)
-	VALUES(#{writer},#{content},#{prodName})
+	INSERT INTO PRODREPLY(WRITER,CONTENT,PRODNAME,SERIAL)
+	VALUES(#{writer},#{content},#{prodName},BBS_ID_SEQ.NEXTVAL)
 
 </insert>
 <select id="prodReplySelectList" resultMap="prodReplyMap">
 	SELECT * FROM PRODREPLY
 	WHERE PRODNAME = #{prodName}
 </select>
+<delete id="prodReplyDelete" parameterType="com.micol.prj.prodreply.vo.ProdReplyVO">
+	DELETE FROM PRODREPLY
+	WHERE SERIAL=#{serial}
+</delete>
 </mapper>

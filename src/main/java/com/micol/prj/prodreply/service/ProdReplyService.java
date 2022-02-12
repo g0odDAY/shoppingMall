@@ -7,5 +7,6 @@ import com.micol.prj.prodreply.vo.ProdReplyVO;
 
 public interface ProdReplyService {
 	int prodReplyInsert(ProdReplyVO vo);
+	int prodReplyDelete(ProdReplyVO vo);
 	List<ProdReplyVO> prodReplySelectList(ProdReplyVO vo);
 }

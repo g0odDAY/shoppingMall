@@ -6,5 +6,6 @@ import com.micol.prj.prodreply.vo.ProdReplyVO;
 
 public interface ProdReplyMapper {
 	int prodReplyInsert(ProdReplyVO vo);
+	int prodReplyDelete(ProdReplyVO vo);
 	List<ProdReplyVO> prodReplySelectList(ProdReplyVO vo);
 }
